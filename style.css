@@ -1,0 +1,19 @@
+* {
+    color: azure;
+}
+
+.hero-image {
+    background-image:url("images/outrun.gif");
+    background-size: 100%;
+    background-position: center;
+    background-repeat: repeat-y;
+
+    
+    background-attachment: fixed;
+    height: 100%;
+    width: 100%;
+  }
+
+.container {
+  background-color: transparent;
+}
