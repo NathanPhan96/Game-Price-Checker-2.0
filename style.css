@@ -2,6 +2,9 @@
     color: azure;
 }
 
+h1 {
+    font-family: 'Press Start 2P', cursive;
+}
 .hero-image {
     background-image:url("images/outrun.gif");
    min-height: 100%;
