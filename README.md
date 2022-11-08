@@ -10,6 +10,9 @@ N/A
 ## USAGE
 User will type in video game title in the search bar and desginate a region. The 'Submit' will allocate pricing in that area and will provide the name and address of the store. This makes frugal shopping easy and effective if you're trying to compare pricing and how far you have to drive to purchase your next video game.
 
+## Screenshot
+![alt text] (image.jpg)
+
 ## Credits
 Adam Latham
 Nathan Phan
