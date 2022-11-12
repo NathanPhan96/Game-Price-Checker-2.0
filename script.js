@@ -50,3 +50,9 @@ submitButtonEl.on("click", function () {
 function clearData() {
   $("ul").empty();
 }
+
+$(function () {
+  $("#game_name").autocomplete({
+    source: gameNames,
+  });
+});
