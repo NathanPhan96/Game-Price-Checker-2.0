@@ -14,7 +14,7 @@ User will type in video game title in the search bar and desginate a region. The
 
 ## Screenshot
 
-![alt text] (image.jpg)
+![alt text] (https://i.imgur.com/PDctFxj.jpg)
 
 ## Credits
 
