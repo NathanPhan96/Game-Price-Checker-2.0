@@ -1,5 +1,6 @@
 * {
     color:black;
+    font-family: 'Press Start 2P', cursive;
 }
 
 h1 {
@@ -10,6 +11,7 @@ h1 {
 label {
     color: azure
 }
+
 
 .hero-image {
     background-image:url("images/outrun.gif");
@@ -50,5 +52,3 @@ label {
     }
   }
 
-
- 
