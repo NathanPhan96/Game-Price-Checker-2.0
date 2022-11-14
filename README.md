@@ -14,7 +14,7 @@ User will type in video game title in the search bar and desginate a region. The
 
 ## Screenshot
 
-![Screenshot] (finished app.JPG)
+![Finished product of the app](./images/finished%20app.JPG)
 
 ## Credits
 
