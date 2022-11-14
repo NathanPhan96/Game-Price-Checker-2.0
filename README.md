@@ -14,12 +14,12 @@ User will type in video game title in the search bar and desginate a region. The
 
 ## Screenshot
 
-![Finished product of the app](./images/finished%20app.JPG)
+![A user will input the title of the game they are searching for and select the region they are currently in. The app will then display the price of the game selected based on the region the user provided. There is also a spotify playlist present in the top left corner to give the user a more immersive experience within the website.](./images/finished%20app.JPG)
 
 ## Credits
 
-Adam Latham
-Nathan Phan
+Adam Latham /
+Nathan Phan /
 Giovanni Galeana
 
 ## License
