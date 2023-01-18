@@ -8,3 +8,11 @@ router.get("/", async (req, res) => {
 });
 
 module.exports = router;
+
+router.get("/login", async (req, res) => {
+  res.sendFile(path.join(__dirname, "../views/layouts/login.html"));
+});
+
+router.get("/dashboard", async (req, res) => {
+  res.sendFile(path.join(__dirname, "../views/layouts/dashboard.html"));
+});
