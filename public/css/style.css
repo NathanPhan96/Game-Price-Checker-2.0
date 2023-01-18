@@ -12,9 +12,20 @@ label {
     color: azure
 }
 
+body {
+    background-color: #2b0f54;
+}
+
+.navbar {
+    justify-content: space-between;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #2b0f54;
+    
+}
 
 .hero-image {
-    background-image:url("images/outrun.gif");
+    background-image:url("/Game_Price_Checker_2.0/public/images/outrun.gif");
    min-height: 100vh;
    min-width: 1080px;
   overflow-y: auto;
