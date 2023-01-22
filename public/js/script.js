@@ -1,3 +1,5 @@
+//Is this the correct file hierarchy?
+
 const options = {
   method: "GET",
   headers: {
@@ -56,4 +58,3 @@ $(function () {
     source: gameNames,
   });
 });
- 
