@@ -3,11 +3,12 @@ CREATE DATABASE games_db;
 
 USE games_db;
 
-CREATE TABLE IF NOT EXISTS accounts(
+CREATE TABLE IF NOT EXISTS user(
 		id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 		username VARCHAR(50) NOT NULL UNIQUE,
 		password VARCHAR(255) NOT NULL,
-		email VARCHAR(100) NOT NULL UNIQUE
+		email VARCHAR(100) NOT NULL UNIQUE,
+		creation_date DATE NOT NULL
 ) DEFAULT CHARSET=utf8;
 
 CREATE TABLE platforms(
@@ -21,18 +22,33 @@ CREATE TABLE game(
 		platform INT NOT NULL,
 		price DECIMAL(5,2),
 		url VARCHAR(512),
-		account_id INT NOT NULL,
+		user_id INT NOT NULL,
+		post_date DATE NOT NULL,	
+		FOREIGN KEY (user_id)
 		
-		FOREIGN KEY (account_id)
-			REFERENCES accounts(id),
-			
+			REFERENCES user(id),		
 		FOREIGN KEY (platform)
 			REFERENCES platforms(id)
 		) DEFAULT CHARSET=utf8;
 		
-Create TABLE history_price(
+CREATE TABLE social(
+		id INT NOT NULL UNIQUE AUTO_INCREMENT PRIMARY KEY,
+		user_id INT NOT NULL,
+		game_id INT NOT NULL,
+		comment VARCHAR(255) NOT NULL,
+		post_date DATE NOT NULL,
+		
+		FOREIGN KEY (user_id)
+			REFERENCES user(id),
+		FOREIGN KEY (game_id)
+			REFERENCES game(id)
+		) DEFAULT CHARSET=utf8;
+		
+CREATE TABLE history_price(
+		id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 		game_id INT NOT NULL,
 		game_price DECIMAL(5,2),
+		post_date DATE NOT NULL,
 		
 		FOREIGN KEY (game_id)
 			REFERENCES game(id)
@@ -49,12 +65,15 @@ BEFORE UPDATE ON game
                 INSERT INTO history_price
                     (
                         game_id,
-                        game_price
+                        game_price,
+                        post_date
+                        
                     )
                     VALUES
                     (
-                        NEW.id,
-                        NEW.price
+                        OLD.id,
+                        OLD.price,
+                        OLD.post_date
                     );
         END IF;
     END;
