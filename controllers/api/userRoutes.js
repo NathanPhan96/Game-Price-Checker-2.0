@@ -1,5 +1,6 @@
 
 const router = require('express').Router();
+const { Sequelize } = require('sequelize');
 const { User } = require('../../models');
 //User routes are completed for you so you don't have to deal with setting up authentication
 //Study this code to see how it works, and how it is connected to the frontend

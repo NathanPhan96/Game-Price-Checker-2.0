@@ -1,19 +1,19 @@
 
 /* TODO - Write your CSS here */
 * {
-    color:black;
+    color:rgb(0, 0, 0);
     font-family: 'Press Start 2P', cursive;
 }
 
 h1 {
     font-family: 'Press Start 2P', cursive;
-    color: rgb(0, 0, 0);
+    color: azure(0, 0, 0);
 }
 
 label {
-    color: rgb(0, 0, 0)
+    color: azure(0, 0, 0)
 }
-
+/* Color of the background*/
 body {
     background-color: #2b0f54;
 }
