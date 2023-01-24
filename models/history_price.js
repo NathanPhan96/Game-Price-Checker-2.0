@@ -2,6 +2,7 @@ const { Model, DataTypes } = require("sequelize");
 const bcrypt = require("bcrypt");
 const sequelize = require("../config");
 
+class history_price extends Model {}
 history_price.init(
     {
         id: {
@@ -37,3 +38,5 @@ history_price.init(
         modelName: "history_price",
     }
 );
+
+module.exports = history_price;

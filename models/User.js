@@ -21,15 +21,7 @@ User.init(
     username: {
       type: DataTypes.STRING,
       allowNull: false,
-      unique: false,
     },
-    email: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      unique: true,
-      validate: {
-        isEmail: true,
-      },
     password: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -38,6 +30,7 @@ User.init(
       },
     },
   },
+  {
     hooks: {
       // set up beforeCreate lifecycle "hook" functionality
       beforeCreate: async (newUserData) => {
@@ -57,7 +50,7 @@ User.init(
     freezeTableName: true,
     underscored: true,
     modelName: "user",
-    }
+  }
 );
 
 module.exports = User;

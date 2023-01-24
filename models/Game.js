@@ -1,5 +1,5 @@
 const { Model, DataTypes } = require("sequelize");
-const { Hooks } = require("sequelize/types/hooks");
+// const { Hooks } = require("sequelize/types/hooks");
 const sequelize = require("../config");
 
 class Game extends Model {}
@@ -58,29 +58,29 @@ Game.init(
   }
 );
 
-sequelize.query(`DROP TRIGGER IF EXISTS history_trigger
-delimiter //
-CREATE TRIGGER history_trigger
-BEFORE UPDATE ON game
-    FOR EACH ROW
-    BEGIN
-        IF OLD.price != NEW.price
-        THEN
-                INSERT INTO history_price
-                    (
-                        game_id,
-                        game_price,
-                        post_date
+// sequelize.query(`DROP TRIGGER IF EXISTS history_trigger
+// delimiter //
+// CREATE TRIGGER history_trigger
+// BEFORE UPDATE ON game
+//     FOR EACH ROW
+//     BEGIN
+//         IF OLD.price != NEW.price
+//         THEN
+//                 INSERT INTO history_price
+//                     (
+//                         game_id,
+//                         game_price,
+//                         post_date
                         
-                    )
-                    VALUES
-                    (
-                        OLD.id,
-                        OLD.price,
-                        OLD.post_date
-                    );
-        END IF;
-    END;
-delimiter ;`)
+//                     )
+//                     VALUES
+//                     (
+//                         OLD.id,
+//                         OLD.price,
+//                         OLD.post_date
+//                     );
+//         END IF;
+//     END;
+// delimiter ;`)
 
 module.exports = Game;

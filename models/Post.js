@@ -17,6 +17,7 @@ Post.init(
         model: "user",
         key: "id",
       },
+    },
       game_id: {
         type: DataTypes.INTEGER,
         references: {
@@ -27,6 +28,7 @@ Post.init(
     title: DataTypes.STRING,
     body: DataTypes.STRING,
   },
+  {
     sequelize,
     timestamps: true,
     freezeTableName: true,
