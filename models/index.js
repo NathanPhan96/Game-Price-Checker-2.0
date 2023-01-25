@@ -5,6 +5,8 @@ const Post = require("./Post");
 const Comment = require("./Comment");
 const Game = require("./Game");
 const Platform = require("./Platform");
+const history_price = require("./history_price");
+
 
 //Posts will have a userId field connecting to user table's id column
 //if a user gets deleted, all posts made by the user get deleted
@@ -27,19 +29,24 @@ Comment.belongsTo(User, {
   onDelete: "CASCADE",
 });
 
-User.hasOne(Game, {
-  foreignKey: "user_id",
-});
+// User.hasOne(Game, {
+//   foreignKey: "user_id",
+// });
 
 Game.belongsTo(User);
 
 Platform.belongsTo(Game);
 
-//exports all 5 models as a module
+history_price.belongsTo(Game);
+
+
+
+//exports all 6 models as a module
 module.exports = {
   User,
   Comment,
   Post,
   Game,
   Platform,
+  history_price,
 };
