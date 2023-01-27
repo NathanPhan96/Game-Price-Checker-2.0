@@ -2,6 +2,7 @@ const { Game } = require("../models");
 
 const gameData = [
   {
+    id: 0,
     name: "Super Mario 64",
     platform: 1,
     price: 10.99,

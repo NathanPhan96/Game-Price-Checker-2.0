@@ -5,7 +5,6 @@ const sequelize = require("sequelize");
 const withAuth = require("../../utils/auth");
 
 router.get("/", async (req, res) => {
-  // res.status(200).send("gameData");
   try {
     const gameData = await Game.findAll();
     const games = gameData.map((game) => game.get({ plain: true }));
@@ -19,17 +18,6 @@ router.get("/", async (req, res) => {
 router.get("/:id", async (req, res) => {
   try {
     const gameData = await Game.findByPk(req.params.id);
-    // const games = gameData.map((game) => game.get({ plain: true }));
-    // res.status(200).json(gameData);
-    // const gameData = await Game.findByPk(req.params.id, {
-    //   // include: [
-    //   //   {
-    //   //     model: Game,
-    //   //     attributes: ["name"],
-    //   //   },
-    //   ],
-    // });
-    console.log(gameData);
     if (!gameData) {
       res.status(404).json({ message: "No game found with this id!" });
       return;

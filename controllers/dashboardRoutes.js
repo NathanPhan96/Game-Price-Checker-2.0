@@ -3,57 +3,70 @@
 // All of these routes will be protected by the withAuth middleware function.
 
 const router = require("express").Router();
-const { Post } = require("../models");
 const withAuth = require("../utils/auth");
-const { Game } = require("../models");
+const { Game, User, Platform } = require("../models");
 
 // TODO - create logic for the GET route for / that renders the dashboard homepage
 // It should display all of the posts created by the logged in user
 router.get("/", withAuth, async (req, res) => {
   try {
-    let game = Game.findAll();
-    // TODO - retrieve all posts from the database for the logged in user
-    // render the dashboard template with the posts retrieved from the database
-    //default layout is set to main.handlebars, layout need to be changed to dashboard to use dashboard.handlebars
-    let posts = Post.findAll();
-    res.render("admin-all-posts", {
-      layout: "dashboard",
-      posts: posts,
-      game: game,
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-  // refer to admin-all-posts.handlebars write the code to display the posts
-});
+    //--------------------------------------------//
+    User.findOne({
+      where: {
+        id: req.session.userId,
+      },
+    }).then((userData) => {
+      const users = userData.get({ plain: true });
 
-router.get("/gameData/:id", withAuth, async (req, res) => {
-  res.render("gameview", { layout: "dashboard", game: game });
-});
-// TODO - create logic for the GET route for /new that renders the new post page
-// It should display a form for creating a new post
-
-// TODO - create logic for the GET route for /edit/:id that renders the edit post page
-// It should display a form for editing an existing post
-router.get("/gameData/:id", withAuth, async (req, res) => {
-  try {
-    const gameData = await Game.findByPk(req.params.id, {
-      include: [
-        {
-          model: Game,
-          attributes: ["name"],
+      // console.log(users);
+      //--------------------------------------------//
+      Game.findAll({
+        where: {
+          user_id: 1,
         },
-      ],
+      }).then((gameData) => {
+        const games = gameData.map((game) => game.get({ plain: true }));
+
+        //.console.log(games);
+        //--------------------------------------------//
+        Platform.findAll().then((platformData) => {
+          const platforms = platformData.map((platform) =>
+            platform.get({ plain: true })
+          );
+          // console.log(platforms);
+          //--------------------------------------------//
+
+          res.render("admin-all-posts", {
+            layout: "dashboard",
+            platforms,
+            users,
+            games,
+            loggedIn: true,
+          });
+        });
+      });
     });
-    if (!gameData) {
-      res.status(404).json({ message: "No game found with this id!" });
-      return;
-    }
-    const game = gameData.get({ plain: true });
-    res.status(200).json(game);
   } catch (err) {
     res.status(500).json(err);
   }
 });
+
+// const userData = await User.findAll({
+// const users = userData.map((user) => user.get({ plain: true }))
+
+// TODO - retrieve all posts from the database for the logged in user
+// render the dashboard template with the posts retrieved from the database
+//default layout is set to main.handlebars, layout need to be changed to dashboard to use dashboard.handlebars
+// let posts = Post.findAll();
+
+//   res.render("admin-all-posts", {
+//     layout: "dashboard",
+//   });
+// } catch (err) {
+//   res.status(500).json(err);
+// }
+// // refer to admin-all-posts.handlebars write the code to display the posts
+
+// TODO - create logic for the GET route for /game that renders the gamep page
 
 module.exports = router;
