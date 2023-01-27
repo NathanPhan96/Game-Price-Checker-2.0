@@ -40,7 +40,7 @@ const gameData = [
     name: "The Legend of Zelda: Link's Awakening",
     platform: 11,
     price: 10.99,
-    url: https://www.gamestop.com/video-games/nintendo-switch/products/the-legend-of-zelda-links-awakening---nintendo-switch/205958.html,
+    url: 'https://www.gamestop.com/video-games/nintendo-switch/products/the-legend-of-zelda-links-awakening---nintendo-switch/205958.html',
     user_id: 1,
   },
 ];
