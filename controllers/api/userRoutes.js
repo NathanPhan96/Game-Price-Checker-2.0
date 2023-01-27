@@ -1,12 +1,11 @@
-
-const router = require('express').Router();
-const { Sequelize } = require('sequelize');
-const { User } = require('../../models');
+const router = require("express").Router();
+const { Sequelize } = require("sequelize");
+const { User } = require("../../models");
 //User routes are completed for you so you don't have to deal with setting up authentication
 //Study this code to see how it works, and how it is connected to the frontend
 
 // POST /api/users is a registration route for creating a new user
-router.post('/', async (req, res) => {
+router.post("/", async (req, res) => {
   try {
     const newUser = await User.create({
       username: req.body.username,
@@ -14,7 +13,7 @@ router.post('/', async (req, res) => {
     });
 
     req.session.save(() => {
-      req.session.user_id = newUser.id;
+      req.session.userId = newUser.id;
       req.session.username = newUser.username;
       req.session.loggedIn = true;
 
@@ -26,7 +25,7 @@ router.post('/', async (req, res) => {
 });
 
 // POST /api/users/login is a login route for an existing user
-router.post('/login', async (req, res) => {
+router.post("/login", async (req, res) => {
   try {
     const user = await User.findOne({
       where: {
@@ -35,33 +34,32 @@ router.post('/login', async (req, res) => {
     });
 
     if (!user) {
-      res.status(400).json({ message: 'No user account found!' });
+      res.status(400).json({ message: "No user account found!" });
       return;
     }
 
     const validPassword = user.checkPassword(req.body.password);
 
     if (!validPassword) {
-      res.status(400).json({ message: 'No user account found!' });
+      res.status(400).json({ message: "No user account found!" });
       return;
     }
 
     req.session.save(() => {
-      req.session.user_id = user.id;
+      req.session.userId = user.id;
       req.session.username = user.username;
       req.session.loggedIn = true;
 
-      res.json({ user, message: 'You are now logged in!' });
+      res.json({ user, message: "You are now logged in!" });
     });
   } catch (err) {
-    res.status(400).json({ message: 'No user account found!' });
+    res.status(400).json({ message: "No user account found!" });
   }
 });
 
-
-// POST /api/users/logout is a logout route for an existing user, 
+// POST /api/users/logout is a logout route for an existing user,
 //it also destroys the session so the user is no longer logged in
-router.post('/logout', (req, res) => {
+router.post("/logout", (req, res) => {
   if (req.session.loggedIn) {
     req.session.destroy(() => {
       res.status(204).end();
@@ -70,5 +68,15 @@ router.post('/logout', (req, res) => {
     res.status(404).end();
   }
 });
+
+// router.get("/", async (req, res) => {
+//   try {
+//     const userData = await User.findAll();
+//     const users = userData.map((user) => user.get({ plain: true }));
+//     res.status(200).json(users);
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
 
 module.exports = router;

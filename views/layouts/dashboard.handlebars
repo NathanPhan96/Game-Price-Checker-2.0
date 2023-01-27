@@ -22,15 +22,16 @@
   </head>
 
   <body>
-    <nav class="navbar">
+  <nav class="navbar">
       <ul>
         <li><a href="/">Home</a></li>
         <li><a href="/dashboard">Dashboard</a></li>
+        <li><a href="/login">Login</a></li>
         <li><a href="#" id="logout-link">Logout</a></li>
       </ul>
     </nav>
-    <header>
-    <h1><a href="/dashboard">Your Dashboard</a></h1>
+    <header class="navbar">
+    <h1><a href="/dashboard">{{users.username}}'s Dashboard</a></h1>
     </header>
     <div class="hero-image">
     <div class="hero-text">
