@@ -14,6 +14,6 @@ router.use('/post', postRoutes);
 //commentRoutes will have /comment prepended to all routes
 router.use('/comment', commentRoutes);
 //gameRoutes will have /game prepended to all routes
-router.use('/game', gameRoutes);
+router.use('/gameData', gameRoutes);
 
 module.exports = router;

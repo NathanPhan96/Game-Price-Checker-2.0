@@ -26,7 +26,7 @@ Game.init(
       },
     },
     price: {
-      type: DataTypes.DECIMAL,
+      type: DataTypes.DECIMAL(5, 2),
       allowNull: false,
       unique: false,
     },
@@ -43,11 +43,6 @@ Game.init(
         model: "user",
         key: "id",
       },
-    },
-    post_date: {
-      type: DataTypes.DATE,
-      allowNull: false,
-      unique: false,
     },
   },
   {
