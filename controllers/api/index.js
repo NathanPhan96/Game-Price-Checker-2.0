@@ -5,6 +5,7 @@ const router = require('express').Router();
 const userRoutes = require('./userRoutes');
 const postRoutes = require('./postRoutes');
 const commentRoutes = require('./commentRoutes');
+const gameRoutes = require('./gameRoutes');
 
 //userRoutes will have /user prepended to all routes
 router.use('/user', userRoutes);
@@ -12,5 +13,7 @@ router.use('/user', userRoutes);
 router.use('/post', postRoutes);
 //commentRoutes will have /comment prepended to all routes
 router.use('/comment', commentRoutes);
+//gameRoutes will have /game prepended to all routes
+router.use('/game', gameRoutes);
 
 module.exports = router;

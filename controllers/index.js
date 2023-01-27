@@ -6,6 +6,7 @@ const apiRoutes = require("./api");
 const homeRoutes = require("./homeRoutes.js");
 const dashboardRoutes = require("./dashboardRoutes.js");
 
+
 //homeRoutes will have no prefix prepended to all routes
 router.use("/", homeRoutes);
 //dashboardRoutes will have /dashboard prepended to all routes

@@ -23,8 +23,8 @@ Game.init(
       references: {
         model: "platform",
         key: "id",
+      },
     },
-  }, 
     price: {
       type: DataTypes.DECIMAL,
       allowNull: false,
@@ -42,8 +42,8 @@ Game.init(
       references: {
         model: "user",
         key: "id",
+      },
     },
-  },
     post_date: {
       type: DataTypes.DATE,
       allowNull: false,
@@ -71,7 +71,7 @@ Game.init(
 //                         game_id,
 //                         game_price,
 //                         post_date
-                        
+
 //                     )
 //                     VALUES
 //                     (
