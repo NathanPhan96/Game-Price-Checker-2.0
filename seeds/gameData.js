@@ -15,7 +15,7 @@ const gameData = [
     platform: 1,
     price: 22.99,
     url: null,
-    user_id: 1,
+    user_id: 2,
     post_date: "2021-01-02",
   },
   {
@@ -23,7 +23,7 @@ const gameData = [
     platform: 1,
     price: 10.99,
     url: null,
-    user_id: 1,
+    user_id: 3,
     post_date: "2021-01-03",
   },
   {
@@ -31,7 +31,7 @@ const gameData = [
     platform: 1,
     price: 10.99,
     url: null,
-    user_id: 1,
+    user_id: 3,
     post_date: "2021-01-04",
   },
   {
@@ -39,7 +39,7 @@ const gameData = [
     platform: 1,
     price: 10.99,
     url: null,
-    user_id: 1,
+    user_id: 3,
     post_date: "2021-01-05",
   },
   {

@@ -22,6 +22,10 @@ body {
     color: azure
 }
 
+.chart {
+    background-color: azure;
+}
+
 .navbar {
     justify-content: space-between;
     display: flex;
