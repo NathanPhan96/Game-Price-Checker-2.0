@@ -42,6 +42,73 @@ const gameData = [
     user_id: 1,
     post_date: "2021-01-05",
   },
+  {
+    name: "Modern Warfare",
+    platform: 1,
+    price: 18.99,
+    url: null,
+    user_id: 1,
+    post_date: "2021-10-25",
+  },
+  {
+    name: "Modern Warfare 2",
+    platform: 1,
+    price: 69.99,
+    url: null,
+    user_id: 1,
+    post_date: "2021-10-28",
+  },
+  {
+    name: "Asassins Creed Mirage",
+    platform: 1,
+    price: 59.99,
+    url: null,
+    user_id: 1,
+    post_date: "2021-01-05",
+  },
+  {
+    name: "Asassins Creed Mirage",
+    platform: 1,
+    price: 59.99,
+    url: null,
+    user_id: 1,
+    post_date: "2021-01-05",
+  },
+  {
+    name: "Grand Theft Auto V",
+    platform: 1,
+    price: 39.99,
+    url: null,
+    user_id: 1,
+    post_date: "2021-01-05",
+  },
+  {
+    name: "God of War Ragnarok",
+    platform: 1,
+    price: 54.99,
+    url: null,
+    user_id: 1,
+    post_date: "2022-11-09",
+  },
+  {
+    name: "God of War 4",
+    platform: 1,
+    price: 54.99,
+    url: null,
+    user_id: 1,
+    post_date: "2022-04-20",
+  },
+  {
+    name: "Ghost of Tsusshima",
+    platform: 1,
+    price: 69.99,
+    url: null,
+    user_id: 1,
+    post_date: "2020-17-07",
+
+  }
+
+  
 ];
 
 const seedGames = () => Game.bulkCreate(gameData);
