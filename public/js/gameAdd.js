@@ -11,7 +11,7 @@ const gameAdd = async function (event) {
   const gameid = Game.id;
   const userid = req.session.user_id;
 
-  const response = await fetch("/api/gameData/", {
+  const response = await fetch("/api/gameData", {
     method: "POST",
     body: JSON.stringify({
       id: gameid.value,
@@ -25,7 +25,7 @@ const gameAdd = async function (event) {
   });
 
   if (response.ok) {
-    console.log("Game Added");
+    
   } else {
     alert("Failed to add game");
   }
