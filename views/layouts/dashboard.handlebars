@@ -38,12 +38,34 @@
 
     <main>
       {{{body}}}
-    </main>
+    
+    <form id="game-add-form" class="card-body justify-content-center">
+    <div>
+      <label class="azure" for="game-name-input">Game Name</label>
+      <input type="text" id="game-name-input" />
+    </div>
+     <div>
+      <label class="azure" for="game-price-input">Price</label>
+      <input type="text" id="game-price-input" />
+    </div>
+     <div>
+      <label class="azure" for="game-platform-input">Platform</label>
+      <input type="text" id="game-platform-input" />
+    </div>
+     <div>
+      <label class="azure" for="game-url-input">URL</label>
+      <input type="text" id="game-url-input" />
+    </div>
+    <button type="submit" class="nes-btn is-primary">Submit</button>
+    </form>
+</main>
   </body>
+
 
 </html>
 {{! inline script to handle click of logout button }}
 <script>
+  const gameAdd = async function(event) { event.preventDefault();
   const logout = async function() { const response = await
   fetch('/api/user/logout', { method: 'POST', headers: { 'Content-Type':
   'application/json' }, }); if (response.ok) { document.location.replace('/'); }
