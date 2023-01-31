@@ -1,19 +1,4 @@
-<<<<<<< HEAD
 ## Game Price Checker 2.0
-=======
-Game Price Checker 2.0 is an update on the 1.0 verison of the aforementioned app.  The 2.0 update allows for more functionality with introduced features of a user login and historical graph data.  The newly updated verison follows MVC paradigm and utilizes Handlebar.js as well as MySQL2 jointed with Sequalize as databases for the models.  The goal of the 2.0 update was to allow users to access a more seemless approach towards recognizing the best time to purchase some of their most sought after game titles.  
-
-#Credits
-Jose Cueto: https://github.com/Chitosama
-Adam Latham: https://github.com/Hurtorc
-Nathan Phan: https://github.com/NathanPhan96
-Giovanni Galeana: https://github.com/galeg008
-April Viramontes Romero: https://github.com/AViramontes
-Nathan Nguyen: https://github.com/devNathanNguyen
-
-__________________________________________________________
-
->>>>>>> 6e6ed64a7b8742c9f52373c509f1d612d6a04cbf
 
 
 ## App Functionality
@@ -31,7 +16,13 @@ User will create an account and login to the website to view their dashbboard. T
 
 
 
+
+
+
 ## App Link
+
+
+https://game-price-checker-2.herokuapp.com/
 
 
 
