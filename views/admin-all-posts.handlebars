@@ -1,12 +1,8 @@
 <section class="flex-row justify-center">
     <ul>
-    {{#each games}}
-        <div>
-          <h1>{{name}}</h1>
-          <h3>{{price}}</h3>
-          <h3>{{platform}}</h3>
-        </div>
+    {{#each games as |game|}}
+    {{> gameview}}
+    {{> chart}}
     {{/each}}
     </ul>
-    
 </section>
