@@ -14,8 +14,17 @@ User will create an account and login to the website to view their dashbboard. T
 
 ## Screenshot
 
+Home Page
+![](images/homepage.JPG)
 
+SignUp Page
+![](images/signup%20page.JPG)
 
+Login Page
+![](images/login%20page.JPG)
+
+DashBoard
+![](images/dashboard.JPG)
 
 
 
