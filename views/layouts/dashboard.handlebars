@@ -37,12 +37,13 @@
     <div class="hero-text">
 
     <main>
+
       {{{body}}}
-    
-    <form id="game-add-form" class="card-body justify-content-center">
+
+    <form name="game" id="game" method="POST" action="/api/gameData" class="card-body justify-content-center">
     <div>
-      <label class="azure" for="game-name-input">Game Name</label>
-      <input type="text" id="game-name-input" />
+      <label class="azure" for="name">Game Name</label>
+      <input type="text" id="name" name="name" value="name"/>
     </div>
      <div>
       <label class="azure" for="game-price-input">Price</label>
@@ -61,46 +62,43 @@
 </main>
   </body>
 
-</html>
-
+</html> 
 {{! inline script to handle click of logout button }}
 <script>
-  const gameAdd = async function(event) {
-  event.preventDefault();
-  const gameName = document.querySelector('#game-name-input').value;
-  const gamePrice = document.querySelector('#game-price-input').value;
-  const gamePlatform = document.querySelector('#game-platform-input').value;
-  const gameUrl = document.querySelector('#game-url-input').value;
+  window.addEventListener("load", () => {
+  function sendData() {
+    const XHR = new XMLHttpRequest();
 
-  console.log(gameName, gamePrice, gamePlatform, gameUrl);
+    // Bind the FormData object and the form element
+    const FD = new FormData(form);
 
-  var details = {
-    'name': gameName,
-    'price': gamePrice,
-    'platform': gamePlatform,
-    'url': gameUrl,
-    'user_id': req.session.user_id};
+    // Define what happens on successful data submission
+    XHR.addEventListener("load", (event) => {
+      alert(event.target.responseText);
+    });
 
-  var formBody = [];
-  for (var property in details) {
-    var encodedKey = encodeURIComponent(property);
-    var encodedValue = encodeURIComponent(details[property]);
-    formBody.push(encodedKey + "=" + encodedValue);
+    // Define what happens in case of error
+    XHR.addEventListener("error", (event) => {
+      alert('Oops! Something went wrong.');
+    });
+
+    // Set up our request
+    XHR.open("POST", "/api/gameData");
+
+    // The data sent is what the user provided in the form
+    XHR.send(FD);
   }
-  formBody = formBody.join("&");
-  const response = await fetch('/api/gameData', {
-    method: 'POST',
-    body: formBody,
-    headers: {
-      'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
-    }
+
+  // Get the form element
+  const form = document.getElementById("game");
+
+  // Add 'submit' event handler
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    sendData();
   });
-  if (response.ok) {
-    //document.location.replace('/dashboard');
-  } else {
-    alert('Failed to add game');
-  }
-};
+});
   const logout = async function() { const response = await
   fetch('/api/user/logout', {
      method: 'POST', 
