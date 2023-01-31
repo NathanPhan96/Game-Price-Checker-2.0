@@ -14,7 +14,7 @@ User will create an account and login to the website to view their dashbboard. T
 
 ## Screenshot
 
-![Homepage] (https://i.postimg.cc/wjHNCByX/homepage.jpg)
+
 
 
 
